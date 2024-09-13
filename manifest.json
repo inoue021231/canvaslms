@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas LMS Extensions",
+  "version": "1.0",
+  "description": "CanvasLMSにさらなる情報を提供",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://syllabus.chs.nihon-u.ac.jp/*",
+    "https://nu.instructure.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://nu.instructure.com/courses/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
